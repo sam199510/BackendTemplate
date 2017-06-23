@@ -3,8 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="CSS/index.css">
 </head>
 <body>
-f;jafasfasl;fjads;lfjads;
+    <ul style="list-style: none;">
+        <#list users as user>
+            <li>${user.userName} &nbsp; ${user.mobile?c} &nbsp; ${user.address}</li>
+        </#list>
+    </ul>
+
+
+    <a href="login.html">登录</a>
+
 </body>
 </html>

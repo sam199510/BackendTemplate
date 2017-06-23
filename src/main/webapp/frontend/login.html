@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <a href="index.html">返回</a><br>
+    <form id="loginForm">
+        <input name="userName" id="userName" type="text" placeholder="请输入用户名"><br><br>
+        <input name="password" id="password" type="password" placeholder="请输入密码"><br><br>
+        <input id="loginBtn"  type="button" value="提交">
+    </form><br>
+    <div id="output" style="width: 200px; height: 50px; font-size: 14px; font-family: '微软雅黑'; ">
+
+    </div><br>
+    <div id="login_User" style="width: 200px; height: 50px; font-size: 14px; font-family: '微软雅黑'; ">
+
+    </div>
+
+    <script type="text/javascript" src="JS/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="JS/jquery-1.7.js"></script>
+    <script type="text/javascript" src="JS/jquery-form.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+           $('#loginBtn').click(function () {
+
+               $('#output').empty();
+               $('#login_User').empty();
+
+               var userName = $('#userName').val();
+               var password = $('#password').val();
+
+               $.ajax({
+                   type: 'POST',
+                   url: 'login.html',
+                   data: {
+                       userName: userName,
+                       password: password
+                   },
+                   beforeSend: function () {
+                       
+                   },
+                   success: function (msg) {
+                       if (msg == "登录成功") {
+                           console.log(msg);
+//                           var loginInfoSpan = $("<span><#if Session.loginUserName?exists>${Session.loginUserName}</#if></span>");
+//                           $('#login_User').append(loginInfoSpan);
+
+                           window.location.href="loginRight.html";
+
+                       } else if (msg == "用户名或密码不同！登录失败！") {
+                           console.log(msg);
+                           var loginErrorSpan = $("<span>" + msg + "</span>");
+                           $('#output').append(loginErrorSpan);
+                       }
+                   },
+                   complete:function () {
+
+                   }
+               });
+
+               return false;
+           });
+        });
+
+    </script>
+
+</body>
+</html>

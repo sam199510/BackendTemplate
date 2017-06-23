@@ -1,3 +1,7 @@
 com/backendTemplate/action/converter/DateConverter.class
+com/backendTemplate/service/UserService.class
+com/backendTemplate/dao/UserDAO.class
 com/backendTemplate/util/DateUtils.class
+com/backendTemplate/entity/User.class
+com/backendTemplate/util/ResultJSON.class
 com/backendTemplate/controller/BTController.class
