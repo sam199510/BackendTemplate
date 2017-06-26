@@ -33,4 +33,8 @@ public class UserService {
     public List<User> findByUserName(String userName) {
         return this.userDAO.findByUserName(userName);
     }
+
+    public List<User> showMyCollectBook(int collectorID){
+        return this.userDAO.showMyCollectBook(collectorID);
+    }
 }

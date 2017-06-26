@@ -41,5 +41,11 @@ public class UserDAO {
         return query.list();
     }
 
+    @SuppressWarnings("unchecked")
+    public List showMyCollectBook(int collectorID){
+        String hql = "from User u where u.id = " + collectorID;
+        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+        return query.list();
+    }
 
 }

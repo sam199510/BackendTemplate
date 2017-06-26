@@ -80,7 +80,7 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>3.6.0.Final</version>
+      <version>3.6.10.Final</version>
     </dependency>
     <!--
 <dependency>
@@ -192,11 +192,11 @@
       <version>1.6.1</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.hibernate.javax.persistence</groupId>
-      <artifactId>hibernate-jpa-2.1-api</artifactId>
-      <version>1.0.0.Final</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.hibernate.javax.persistence</groupId>-->
+      <!--<artifactId>hibernate-jpa-2.1-api</artifactId>-->
+      <!--<version>1.0.0.Final</version>-->
+    <!--</dependency>-->
 
     <dependency>
       <groupId>org.jsoup</groupId>
@@ -340,8 +340,8 @@
           </webAppConfig>
 
           <!-- 每2秒的间隔扫描一次,实现热部署 -->
-          <scanIntervalSeconds>2</scanIntervalSeconds>
-          <contextPath>/</contextPath>
+          <reload>automatic</reload>
+          <scanIntervalSeconds>3</scanIntervalSeconds>
 
         </configuration>
         <executions>
@@ -390,7 +390,7 @@
               </outputDirectory>
               <resources>
                 <resource>
-                  <directory>src/main/resources</directory>
+                  <directory>/src/main/resources</directory>
                   <includes>
                     <include>*.xml</include>
                     <include>*.properties</include>

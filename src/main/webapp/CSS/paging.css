@@ -1,0 +1,196 @@
+@charset "UTF-8";
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.backupLink{
+    margin-top: 20px;
+    width:10%;
+    height: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    float: left;
+}
+
+.setMaxNumOfEveryPage{
+    margin-top: 10px;
+    width:80%;
+    height: 40px;
+    margin-left: 10%;
+    margin-right: 10%;
+    float: left;
+}
+
+.setMaxNumOfEveryPage span{
+    font-family: '微软雅黑';
+    font-size: 14px;
+    float: left;
+}
+
+.maxNumOfEveryPage{
+    float: left;
+    width: 100px;
+    height:15px;
+}
+
+.setMaxNumOfEveryPageBtn{
+    margin-left: 5px;
+    float: left;
+    width: 50px;
+    height:20px;
+    background-color: lightblue;
+    color: white;
+    border-style: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+.setMaxNumOfEveryPageBtn:active{
+    color: black;
+}
+
+.setAsDefaultBtn{
+    margin-left: 5px;
+    float: left;
+    width: 80px;
+    height:20px;
+    background-color: lightblue;
+    color: white;
+    border-style: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+.setAsDefaultBtn:active{
+    color: black;
+}
+
+.pagingBtn {
+    margin-top: 10px;
+    width:80%;
+    height: 40px;
+    margin-left: 10%;
+    margin-right: 10%;
+    float: left;
+}
+
+.preBtn {
+    width: 10%;
+    height: 40px;
+    right: 52%;
+    float: left;
+    text-align: right;
+    cursor: pointer;
+    position: absolute;
+    display: none;
+}
+
+.nextBtn{
+    width: 10%;
+    float: left;
+    height: 40px;
+    left: 52%;
+    text-align: left;
+    cursor: pointer;
+    position: absolute;
+}
+
+.pagingMain{
+    float: left;
+    width:80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 20px;
+}
+
+.pagingBox{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    height: 250px;
+    font-family: "微软雅黑";
+    margin-top: 50px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid lightblue;
+}
+
+.pagingBox_top{
+    width: 100%;
+    height:20px;
+    line-height: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 24px;
+    font-weight: bold;
+    float: left;
+}
+
+.pagingBox_middle{
+    width: 100%;
+    height: 160px;
+    float: left;
+}
+
+.imageCover {
+    float: left;
+    margin: 0px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100px;
+    height: 150px;
+}
+
+.imageCover img{
+    width: 100%;
+    height: 100%;
+}
+
+.intro {
+    margin-left: 20px;
+    height: 160px;
+    float: left;
+}
+
+.intro_item_author {
+    height: 26px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.intro_item_publisher {
+    height: 26px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.intro_item_isbn {
+    height: 26px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.intro_item_repertory {
+    height: 26px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.intro_item_price {
+    height: 26px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: #fb002a;
+}
+
+.pagingBox_bottom{
+    width: 100%;
+    height: 50px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    float: left;
+}

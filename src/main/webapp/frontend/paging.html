@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="CSS/paging.css">
+</head>
+<body>
+    <a href="index.html" class="backupLink">返回</a><br><br><br>
+    <div class="setMaxNumOfEveryPage">
+        <span>设置页面最大显示量：</span>
+        <input name="maxNumOfEveryPage" class="maxNumOfEveryPage">
+        <input type="button" class="setMaxNumOfEveryPageBtn" value="设置">
+        <input type="button" class="setAsDefaultBtn" value="设为默认值">
+    </div>
+    <div class="pagingBtn">
+        <div class="preBtn">上一页</div>
+        <div class="nextBtn">下一页</div>
+    </div>
+    <div class="pagingMain">
+        <div class="pagingBox">
+            <div class="pagingBox_top">
+                笑傲江湖
+            </div>
+            <div class="pagingBox_middle">
+                <div class="imageCover">
+                    <img src="https://img3.doubanio.com/mpic/s2157335.jpg">
+                </div>
+                <div class="intro">
+                    <div class="intro_item_author">作者：金庸</div>
+                    <div class="intro_item_publisher">出版社：生活·读书·新知三联书店</div>
+                    <div class="intro_item_isbn">ISBN：9787108006639</div>
+                    <div class="intro_item_repertory">库存：1000</div>
+                    <div class="intro_item_price">¥&nbsp;76.8</div>
+                </div>
+            </div>
+            <div class="pagingBox_bottom">
+                <p>《笑傲江湖》是金庸1967年写的一部武侠小说，属于金庸的后期作品。 </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="JS/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="JS/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="JS/jquery-form.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            //定义分页数
+            var numOfPaging = 0;
+            //定义最大页码
+            var maxNumOfPaging = 0;
+            //定义当前页码值
+            var currentPageNum = 0;
+            //定义当前页码最大显示量
+            var maxPageNum = 8;
+            //定义最大数据量
+            var maxNumOfData = 0;
+            //调用获取分页数和最大页码的函数
+            getNumOfPaging(maxPageNum);
+            //函数初始调用获取首页元素的函数
+            showBookByPaging(0, maxPageNum);
+            //上一页按钮方法
+            $('.preBtn').click(function () {
+                currentPageNum--;
+                if (currentPageNum == 0) {
+                    $('.preBtn').css('display','none');
+                }
+                if (currentPageNum < maxNumOfPaging) {
+                    $('.nextBtn').css('display', 'block');
+                }
+                showBookByPaging(currentPageNum, maxPageNum);
+            });
+            //下一页按钮方法
+            $('.nextBtn').click(function () {
+                currentPageNum++;
+                if (currentPageNum > 0) {
+                    $('.preBtn').css('display','block');
+                }
+                if (currentPageNum == maxNumOfPaging ) {
+                    $('.nextBtn').css('display', 'none');
+                }
+                showBookByPaging(currentPageNum, maxPageNum);
+            });
+
+            //获取分页数和最大页码的函数
+            function getNumOfPaging(maxPageNum) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'showAllBooks.html',
+                    dataType: 'json',
+                    data:{
+                    },
+                    beforeSend: function () {
+                        console.log("请求前");
+                    },
+                    success: function (books) {
+                        numOfPaging = parseInt(Math.ceil(books.length/maxPageNum));
+
+                        maxNumOfData = books.length;
+
+                        var floatValueOfMaxPageNum = parseFloat(books.length/maxPageNum);
+                        var intValueOfMaxPageNum = parseInt(books.length/maxPageNum);
+                        if (floatValueOfMaxPageNum - intValueOfMaxPageNum) {
+                            console.log("页码数不是整数");
+                            maxNumOfPaging = parseInt(Math.floor(books.length/maxPageNum));
+                        } else {
+                            console.log("页码数是整数");
+                            maxNumOfPaging = parseInt(Math.floor(books.length/maxPageNum)) - 1;
+                        }
+                    },
+                    complete: function () {
+                        console.log("请求完成");
+                    },
+                    error: function () {
+                        console.log("请求错误");
+                    }
+                });
+            }
+
+            //AJAX分页获取数据函数
+            function showBookByPaging(pageNo, maxPageNum) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'showBookByPaging.html',
+                    dataType: 'json',
+                    data:{
+                        pageNo: pageNo,
+                        maxNum: maxPageNum,
+                    },
+                    beforeSend: function () {
+                        console.log("请求前");
+                    },
+                    success: function (books) {
+                        $("div").remove(".pagingMain .pagingBox");
+                        $.each(books,function (n,book) {
+
+                            var pagingBox_top = $("<div class='pagingBox_top'>" + book.bookName + "</div>")
+
+                            var img = $("<img>").attr("src",book.cover);
+                            var imageCover = $("<div class='imageCover'></div>");
+                            imageCover.append(img);
+
+                            var intro_item_author = $("<div class='intro_item_author'>作者：" + book.author + "</div>");
+                            var intro_item_publisher = $("<div class='intro_item_publisher'>出版社：" + book.publisher + "</div>")
+                            var intro_item_isbn = $("<div class='intro_item_isbn'>ISBN：" + book.isbn + "</div>");
+                            var intro_item_repertory = $("<div class='intro_item_repertory'>库存：" + book.repertory + "</div>");
+                            var intro_item_price = $("<div class='intro_item_price'>¥&nbsp;" + book.price + "</div>");
+
+                            var intro = $("<div class='intro'></div>");
+                            intro.append(intro_item_author);
+                            intro.append(intro_item_publisher);
+                            intro.append(intro_item_isbn);
+                            intro.append(intro_item_repertory);
+                            intro.append(intro_item_price);
+
+                            var pagingBox_middle = $("<div class='pagingBox_middle'></div>");
+                            pagingBox_middle.append(imageCover);
+                            pagingBox_middle.append(intro);
+
+                            var pagingBox_bottom = $("<div class='pagingBox_bottom'><p>书目介绍：" + book.introduce + "</p></div>");
+
+                            var pagingBox = $("<div class='pagingBox'></div>");
+                            pagingBox.append(pagingBox_top);
+                            pagingBox.append(pagingBox_middle);
+                            pagingBox.append(pagingBox_bottom);
+
+                            $('.pagingMain').append(pagingBox);
+                        });
+                    },
+                    complete: function () {
+                        console.log("请求完成");
+                    },
+                    error: function () {
+                        console.log("请求错误");
+                    }
+                });
+            }
+
+            //定义设置当前页面最大显示量的方法
+            $('.setMaxNumOfEveryPageBtn').click(function () {
+                maxPageNum = parseInt($('.maxNumOfEveryPage').val());
+                if ($('.maxNumOfEveryPage').val().length == 0) {
+                    $("span").remove(".maxPage_output");
+                    var maxPage_output = $("<span class='maxPage_output'>请输入需要设置的最大显示量</span>");
+                    $('.setMaxNumOfEveryPage').append(maxPage_output);
+                } else {
+                    $('.maxNumOfEveryPage').val("");
+                    $("span").remove(".maxPage_output");
+                    currentPageNum = 0;
+                    if (currentPageNum == 0) {
+                        $('.preBtn').css('display', 'none');
+                    }
+                    if (currentPageNum < maxNumOfPaging) {
+                        $('.nextBtn').css('display', 'block');
+                    }
+                    if (currentPageNum > 0) {
+                        $('.preBtn').css('display', 'block');
+                    }
+                    if (currentPageNum == maxNumOfPaging) {
+                        $('.nextBtn').css('display', 'none');
+                    }
+                    getNumOfPaging(maxPageNum);
+                    showBookByPaging(currentPageNum, maxPageNum);
+
+                    if (maxPageNum > maxNumOfData) {
+                        $('.preBtn').css('display', 'none');
+                        $('.nextBtn').css('display', 'none');
+                    } else {
+                        $('.nextBtn').css('display', 'block');
+                    }
+                }
+            });
+            //设为默认值的函数
+            $('.setAsDefaultBtn').click(function () {
+                maxPageNum = 8;
+                $('.maxNumOfEveryPage').val("");
+                currentPageNum = 0;
+                if (currentPageNum == 0) {
+                    $('.preBtn').css('display','none');
+                }
+                if (currentPageNum < maxNumOfPaging) {
+                    $('.nextBtn').css('display', 'block');
+                }
+                if (currentPageNum > 0) {
+                    $('.preBtn').css('display','block');
+                }
+                if (currentPageNum == maxNumOfPaging) {
+                    $('.nextBtn').css('display', 'none');
+                }
+                getNumOfPaging(maxPageNum);
+                showBookByPaging(currentPageNum, maxPageNum);
+
+                if (maxPageNum > maxNumOfData) {
+                    $('.preBtn').css('display', 'none');
+                    $('.nextBtn').css('display', 'none');
+                } else {
+                    $('.nextBtn').css('display', 'block');
+                }
+            });
+        });
+
+    </script>
+
+</body>
+</html>

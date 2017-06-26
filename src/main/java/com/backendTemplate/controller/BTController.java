@@ -1,8 +1,9 @@
 package com.backendTemplate.controller;
 
+import com.backendTemplate.entity.Book;
+import com.backendTemplate.entity.Collection;
 import com.backendTemplate.entity.User;
-import com.backendTemplate.service.UserService;
-import com.backendTemplate.util.ResultJSON;
+import com.backendTemplate.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,34 @@ public class BTController {
 
     public void setUserService(UserService userService) {
         this.userService = userService;
+    }
+
+    @Autowired
+    private BookService bookService;
+
+    public void setBookService(BookService bookService) {
+        this.bookService = bookService;
+    }
+
+    @Autowired
+    private CollectionService collectionService;
+
+    public void setCollectionService(CollectionService collectionService) {
+        this.collectionService = collectionService;
+    }
+
+    @Autowired
+    private CommentService commentService ;
+
+    public void setCommentService(CommentService commentService) {
+        this.commentService = commentService;
+    }
+
+    @Autowired
+    private IndentServiceI indentServiceI;
+
+    public void setIndentServiceI(IndentServiceI indentServiceI) {
+        this.indentServiceI = indentServiceI;
     }
 
     @RequestMapping("index")
@@ -92,5 +121,58 @@ public class BTController {
     public String logout(){
         session.invalidate();
         return "redirect:login.html";
+    }
+
+    @RequestMapping(value = "showBookByPaging", method = RequestMethod.GET)
+    public ModelAndView showBookByPagingPage(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("paging");
+        return  modelAndView;
+    }
+
+    @RequestMapping(value = "showBookByPaging", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Book> showBookByPaging(int pageNo, int maxNum){
+        return this.bookService.showBookByPaging(pageNo, maxNum);
+    }
+
+    @RequestMapping(value = "showAllBooks", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Book> showAllBooks(){
+        return this.bookService.showAllBooks();
+    }
+
+    @RequestMapping(value = "showCollectBooksByCollectorID", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Collection> showCollectBooksByCollectorID(int collectorID){
+        return this.collectionService.showCollectBooks(collectorID);
+    }
+
+    @RequestMapping(value = "showMyCollectBook", method = RequestMethod.GET)
+    @ResponseBody
+    public List<User> showMyCollectBook(int collectorID){
+        return this.userService.showMyCollectBook(collectorID);
+    }
+
+    @RequestMapping(value = "checkIsCollect", method = RequestMethod.GET)
+    @ResponseBody
+    public String checkIsCollect(int bookID, int collectorID) {
+        List<Collection> collections = this.collectionService.checkIsCollect(collectorID, bookID);
+        if (collections.size() == 0) {
+            return "未收藏";
+        } else {
+            return "已收藏";
+        }
+    }
+
+    @RequestMapping(value = "showIsComment", method = RequestMethod.GET)
+    @ResponseBody
+    public String showIsComment(int indentID){
+        int commentState = this.indentServiceI.showIsComment(indentID).get(0).getCommentState();
+        if (commentState == 1){
+            return "已评价";
+        } else {
+            return "未评论";
+        }
     }
 }
