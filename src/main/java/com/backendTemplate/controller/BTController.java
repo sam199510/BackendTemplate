@@ -4,6 +4,7 @@ import com.backendTemplate.entity.Book;
 import com.backendTemplate.entity.Collection;
 import com.backendTemplate.entity.User;
 import com.backendTemplate.service.*;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -174,5 +175,36 @@ public class BTController {
         } else {
             return "未评论";
         }
+    }
+
+    @RequestMapping(value = "pwdToMD5", method = RequestMethod.GET)
+    public ModelAndView pwdToMD5Page(){
+        ModelAndView modelAndView = new ModelAndView("pwdToMD5");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "pwdToMD5", method = RequestMethod.POST)
+    @ResponseBody
+    public String md5Test(String password) {
+        DigestUtils digestUtils = new DigestUtils();
+        String md5StringOfPassword = digestUtils.md5Hex(password);
+
+        System.out.println(md5StringOfPassword + "\n" +md5StringOfPassword.length() + "\n" + digestUtils.md5(password) + "\n" +digestUtils.md5(password).length);
+
+        return md5StringOfPassword;
+    }
+
+    @RequestMapping(value = "inputNumber", method = RequestMethod.GET)
+    public ModelAndView inputNumberPage(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("inputNumber");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "detailMessageForTeacher",method = RequestMethod.GET)
+    public ModelAndView detailMessageForTeacherPage(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("detailMessageForTeacher");
+        return modelAndView;
     }
 }

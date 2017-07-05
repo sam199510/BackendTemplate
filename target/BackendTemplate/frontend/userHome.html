@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div><#if Session.loginUserName?exists>${Session.loginUserName}</#if></div><br>
+    <div><#if Session.userId?exists>${Session.userId}</#if></div><br>
+    <a href="logout.html">退出登录</a>
+</body>
+</html>

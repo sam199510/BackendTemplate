@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a href="index.html">返回</a>
+    <form id="md5_Form">
+        <input type="password" id="password" name="password">
+        <input type="button" id="submit" value="提交">
+    </form>
+    <div id="output"></div>
+    <script type="text/javascript" src="JS/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="JS/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="JS/jquery-form.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#submit').click(function () {
+
+                $('#output').empty();
+
+                var password = $('#password').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'pwdToMD5.html',
+                    data: {
+                        password: password
+                    },
+                    beforeSend: function () {
+
+                    },
+                    success: function (msg) {
+                        $('#output').append(msg);
+                        console.log(msg);
+                    },
+                    complete:function () {
+
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
