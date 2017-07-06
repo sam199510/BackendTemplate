@@ -207,4 +207,11 @@ public class BTController {
         modelAndView.setViewName("detailMessageForTeacher");
         return modelAndView;
     }
+
+    @RequestMapping(value = "remindBeforeClass", method = RequestMethod.GET)
+    public ModelAndView remindBeforeClassPage(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("remindBeforeClass");
+        return modelAndView;
+    }
 }

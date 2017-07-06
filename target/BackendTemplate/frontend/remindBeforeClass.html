@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>课前提醒</title>
+    <link type="text/css" rel="stylesheet" href="CSS/remindBeforeClass/remindBeforeClass.css">
+    <script type="text/javascript" src="JS/jQuery/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="JS/jQuery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function toDouble(n) {
+                if (n < 10) {
+                    return '0' + n;
+                } else {
+                    return '' + n;
+                }
+            }
+
+            function showCurrentTime() {
+                $(".current_time").empty();
+
+                var current_time = new Date();
+
+                var str = toDouble(current_time.getFullYear()) + "年"
+                    + toDouble(current_time.getMonth() + 1) + "月"
+                    + toDouble(current_time.getDay()) + "日  "
+                    + toDouble(current_time.getHours()) + ":"
+                    + toDouble(current_time.getMinutes()) + ":"
+                    + toDouble(current_time.getSeconds());
+
+                $(".current_time").text(str);
+            }
+
+            setInterval(showCurrentTime, 1000);
+            showCurrentTime();
+        });
+    </script>
+</head>
+<body>
+    <div class="top_view_class">
+        <div class="top_view_image">
+            <img src="image/remindBeforeClass/time.png">
+        </div>
+        <div class="time_info_class">
+            <div class="time_title">
+                当前时间
+            </div>
+            <div class="current_time">
+                6月5日 7:50:55
+            </div>
+        </div>
+    </div>
+    <div class="remind_class">
+        <div class="remind_tiele">
+            课前提醒
+        </div>
+        <div class="remind_content">
+            &nbsp;&nbsp;&nbsp;&nbsp;某某某同学，您所修的某某某课程马上就要上课了，请及时前往某某某教室准备上课。
+        </div>
+        <div class="click_to_view_course_detail">
+            点击查看课程详情
+        </div>
+        <div class="line_class"></div>
+        <div class="detail_course">
+            课程详情
+        </div>
+        <div class="detail_course_image">
+            <img src="image/remindBeforeClass/htb－Arrow%20right02.png">
+        </div>
+    </div>
+</body>
+</html>
