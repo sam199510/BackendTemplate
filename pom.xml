@@ -347,7 +347,7 @@
 
           <!-- 每2秒的间隔扫描一次,实现热部署 -->
           <reload>automatic</reload>
-          <scanIntervalSeconds>3</scanIntervalSeconds>
+          <scanIntervalSeconds>2</scanIntervalSeconds>
 
         </configuration>
         <executions>
