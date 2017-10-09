@@ -34055,3 +34055,95 @@ INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandle
 INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/remindBeforeClass.*] onto handler 'BTController'
 INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/remindBeforeClass/] onto handler 'BTController'
 INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization completed in 320 ms
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing Root WebApplicationContext: startup date [Mon Sep 11 10:45:08 CST 2017]; root of context hierarchy
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from file [/Users/fei/Documents/Workspace/IDEAWorkspace/J2EE/BackendTemplate/target/classes/applicationContext.xml]
+INFO main org.springframework.beans.factory.config.PropertyPlaceholderConfigurer -Loading properties file from class path resource [config.properties]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.jdbc.datasource.DriverManagerDataSource -Loaded JDBC driver: com.mysql.jdbc.Driver
+INFO main org.hibernate.annotations.common.Version -HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
+INFO main org.hibernate.Version -HHH000412: Hibernate Core {4.3.11.Final}
+INFO main org.hibernate.cfg.Environment -HHH000206: hibernate.properties not found
+INFO main org.hibernate.cfg.Environment -HHH000021: Bytecode provider name : javassist
+INFO main org.hibernate.dialect.Dialect -HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+INFO main org.hibernate.engine.transaction.internal.TransactionFactoryInitiator -HHH000399: Using default transaction strategy (direct JDBC transactions)
+INFO main org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory -HHH000397: Using ASTQueryTranslatorFactory
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000228: Running hbm2ddl schema update
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000102: Fetching database metadata
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000396: Updating schema
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000261: Table found: bookStoreTest.book
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000037: Columns: [cover, author, price, introduce, isbn, publisher, id, bookname, repertory, type]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000108: Foreign keys: []
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000126: Indexes: [primary]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000261: Table found: bookStoreTest.collection
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000037: Columns: [bookcover, collectorid, id, bookname, bookprice, bookid]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000108: Foreign keys: [collection_ibfk_2, collection_ibfk_1]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000126: Indexes: [collecterid, primary, bookid]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000261: Table found: bookStoreTest.comment
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000037: Columns: [commenttime, id, buyerid, content, bookid, buyername]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000108: Foreign keys: [comment_ibfk_2, comment_ibfk_1]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000126: Indexes: [buyerid, primary, bookid]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000261: Table found: bookStoreTest.indent
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000037: Columns: [bookpublisher, commentstate, bookcover, buyermobile, id, buyeraddress, buyerid, bookname, bookprice, bookid, bargaintime, buyername]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000108: Foreign keys: [indent_ibfk_2, indent_ibfk_3]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000126: Indexes: [bookid_2, buyerid, buyerid_2, primary, bookid]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000261: Table found: bookStoreTest.user
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000037: Columns: [password, address, mobile, id, username]
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000108: Foreign keys: []
+INFO main org.hibernate.tool.hbm2ddl.TableMetadata -HHH000126: Indexes: [primary, username]
+INFO main org.hibernate.tool.hbm2ddl.SchemaUpdate -HHH000232: Schema update complete
+INFO main org.springframework.orm.hibernate4.HibernateTransactionManager -Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@11cadb32] of Hibernate SessionFactory for HibernateTransactionManager
+INFO main org.springframework.ui.freemarker.SpringTemplateLoader -SpringTemplateLoader for FreeMarker: using resource loader [Root WebApplicationContext: startup date [Mon Sep 11 10:45:08 CST 2017]; root of context hierarchy] and template loader path [/src/main/webapp/frontend/]
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.context.ContextLoader -Root WebApplicationContext: initialization completed in 1807 ms
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization started
+INFO main org.springframework.web.context.support.XmlWebApplicationContext -Refreshing WebApplicationContext for namespace 'dispatcher-servlet': startup date [Mon Sep 11 10:45:10 CST 2017]; parent: Root WebApplicationContext
+INFO main org.springframework.beans.factory.xml.XmlBeanDefinitionReader -Loading XML bean definitions from class path resource [spring-servlet.xml]
+INFO main org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor -JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO main org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer -ClassTemplateLoader for Spring macros added to FreeMarker configuration
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/logout] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/logout.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/logout/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/login] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/login.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/login/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/index/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/loginaaa] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/loginaaa.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/loginaaa/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/loginRight] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/loginRight.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/loginRight/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showBookByPaging] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showBookByPaging.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showBookByPaging/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showAllBooks] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showAllBooks.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showAllBooks/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showCollectBooksByCollectorID] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showCollectBooksByCollectorID.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showCollectBooksByCollectorID/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showMyCollectBook] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showMyCollectBook.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showMyCollectBook/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/checkIsCollect] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/checkIsCollect.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/checkIsCollect/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showIsComment] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showIsComment.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/showIsComment/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/pwdToMD5] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/pwdToMD5.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/pwdToMD5/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/inputNumber] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/inputNumber.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/inputNumber/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/detailMessageForTeacher] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/detailMessageForTeacher.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/detailMessageForTeacher/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/remindBeforeClass] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/remindBeforeClass.*] onto handler 'BTController'
+INFO main org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping -Mapped URL path [/remindBeforeClass/] onto handler 'BTController'
+INFO main org.springframework.web.servlet.DispatcherServlet -FrameworkServlet 'dispatcher': initialization completed in 360 ms
